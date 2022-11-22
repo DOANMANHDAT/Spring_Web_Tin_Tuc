@@ -1,8 +1,6 @@
 package com.tn.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -17,6 +15,10 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
     private String title;
 
     private String content;
@@ -26,4 +28,5 @@ public class Article {
     private Date updateDate;
 
     private String image;
+
 }

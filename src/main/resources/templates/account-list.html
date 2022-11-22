@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+
+        h1#title-article {
+            text-align: center;
+            margin-top: -124px;
+            /* margin-left: 0px; */
+        }
+
+        table.account_body {
+            margin-left: 5px;
+        }
+
+
+        h1#title-article {
+            text-align: center;
+            margin-top: 1px;
+        }
+
+        table.article_body {
+            text-align: center;
+            margin-left: 458px;
+            margin-top: 22px;
+        }
+
+        .borderall #article {
+            margin-top: -85px;
+        }
+
+        h1#title-category {
+            text-align: center;
+            margin-left: 968px;
+            margin-top: -127px;
+        }
+
+        table.category-body {
+            margin-left: 1122px;
+        }
+
+        div#category {
+            margin-top: -85px;
+        }
+
+        h1#title-category {
+            text-align: center;
+            margin-left: 968px;
+            margin-top: -127px;
+        }
+    </style>
+
+<body>
+<div class="borderall">
+    <!--account-->
+    <div id="account">
+        <h1 id="title-account">List Account</h1>
+        <table class="account_body">
+            <thead>
+            <tr>
+                <td>Id</td>
+                <td>FullName</td>
+                <td>UserName</td>
+                <td>Email</td>
+                <td></td>
+                <td></td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="obj :${listAccount}">
+                <td th:text="${obj.id}">Id</td>
+                <td th:text="${obj.fullName}">FullName</td>
+                <td th:text="${obj.userName}">UserName</td>
+                <td th:text="${obj.email}">Email</td>
+                <td><a th:href="${'/account/detele/'+obj.id}">Detele</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Div article -->
+    <div id="article">
+        <table class="article_body">
+            <h1 id="title-article">List Article</h1>
+            <thead>
+            <tr>
+                <td>Id</td>
+                <td>Title</td>
+                <td>Content</td>
+                <td>CreateDate</td>
+                <td>CategoryName</td>
+                <td>Image</td>
+                <td></td>
+<!--                <td></td>-->
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="obj :${listArticle}">
+                <td th:text="${obj.id}">Id</td>
+                <td th:text="${obj.title}">Title</td>
+                <td th:text="${obj.content}">Content</td>
+                <td th:text="${obj.createDate}">CreateDate</td>
+<!--                <td th:text="${obj.categoryName}">CategoryName</td>-->
+                <td th:text="${obj.image}">Image</td>
+                <td><a th:href="${'/article/detele/'+obj.id}">Detele</a></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <!--Div Category-->
+    <div id="category">
+        <table class="category-body">
+            <h1 id="title-category">List Category</h1>
+            <thead>
+            <tr>
+                <td>Id</td>
+                <td>CategoryName</td>
+                <td>Description</td>
+                <td></td>
+                <td></td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="obj :${listCategory}">
+                <td th:text="${obj.id}">Id</td>
+                <td th:text="${obj.categoryName}">Title</td>
+                <td th:text="${obj.description}">Content</td>
+                <td><a th:href="${'/category/detele/'+obj.id}">Detele</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</body>
+
+</html>
