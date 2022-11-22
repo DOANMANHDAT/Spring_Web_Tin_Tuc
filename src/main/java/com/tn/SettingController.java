@@ -1,2 +1,4 @@
-package com.tn;public class SettingController {
+package com.tn;
+
+public class SettingController {
 }
